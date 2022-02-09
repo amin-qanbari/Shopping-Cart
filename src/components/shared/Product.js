@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //helper
-import { shorten } from "../../helper/function";
+import { shorten, isInCart, quantityCount } from "../../helper/function";
+
+//context
+import { cartContext } from "../../context/CartContextProvider";
 
 const Product = ({ productData }) => {
+  const { state, dispatch } = useContext(cartContext);
   return (
     <Card className="my-3 shadow  ">
       <div className="d-flex justify-content-center my-3">
@@ -25,7 +29,44 @@ const Product = ({ productData }) => {
       <Card.Footer className="d-flex justify-content-between align-items-center">
         <Link to={`${productData.id}`}>details</Link>
 
-        <Button>Add to cart</Button>
+        <div>
+          {isInCart(state, productData.id) ? (
+            <Button
+              onClick={() =>
+                dispatch({ type: "INCREASE", payload: productData })
+              }
+            >
+              +
+            </Button>
+          ) : (
+            <Button
+              onClick={() =>
+                dispatch({ type: "ADD_ITEM", payload: productData })
+              }
+            >
+              Add To Cart
+            </Button>
+          )}
+
+          {quantityCount(state, productData.id) > 1 && (
+            <Button
+              onClick={() =>
+                dispatch({ type: "DECREASE", payload: productData })
+              }
+            >
+              -
+            </Button>
+          )}
+          {quantityCount(state, productData.id) === 1 && (
+            <Button
+              onClick={() =>
+                dispatch({ type: "REMOVE_ITEM", payload: productData })
+              }
+            >
+              remove
+            </Button>
+          )}
+        </div>
       </Card.Footer>
     </Card>
   );

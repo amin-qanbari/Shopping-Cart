@@ -31,7 +31,7 @@ const cartReducer = (state, action) => {
       };
 
     case "INCREASE":
-      const indexI = state.selectedItems.findINdex(
+      const indexI = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );
       state.selectedItems[indexI].quantity++;
@@ -39,7 +39,7 @@ const cartReducer = (state, action) => {
         ...state,
       };
     case "DECREASE":
-      const indexD = state.selectedItems.findINdex(
+      const indexD = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );
       state.selectedItems[indexD].quantity--;
