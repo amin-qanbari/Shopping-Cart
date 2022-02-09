@@ -23,9 +23,8 @@ const Product = ({ productData }) => {
         <h4>{`${productData.price}$`}</h4>
       </Card.Body>
       <Card.Footer className="d-flex justify-content-between align-items-center">
-        <Card.Link>
-          <Link to={productData.id}>details</Link>
-        </Card.Link>
+        <Link to={`${productData.id}`}>details</Link>
+
         <Button>Add to cart</Button>
       </Card.Footer>
     </Card>

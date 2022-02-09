@@ -11,9 +11,9 @@ const Store = () => {
   return (
     <Container>
       <Row>
-        {products.map((product) => (
-          <Col sm={12} md={6} lg={4}>
-            <Product key={product.id} productData={product} />
+        {products.map((item) => (
+          <Col sm={12} md={6} lg={4} key={item.id}>
+            <Product  productData={item} />
           </Col>
         ))}
       </Row>

@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-//context
-import { productContext } from "../context/ProductContextProvider";
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const data = useContext(productContext);
+  const [product , setProduct] = useState([])
+  useEffect(() => {
+    axios.get(`https://fakestoreapi.com/products/${id}`)
+    .then(response => setProduct(response.data))
+  }, [id])
 
-  const product = data[id - 1];
-  const { image, category, title, price, rating, description } = product;
   return (
     <div>
-        <img src={image} alt="product" />
-      <h3>{title}</h3>
-      {category}
-      {price}
-      {rating}
-      {description}
+      <h3>nima-{id}</h3>
+      <img src={product.image} alt="product" />
+      <p>{product.price}</p>
+      <p><span>Category:</span>{product.category}</p>
+      <p>{product.description}</p>
     </div>
   );
 };
