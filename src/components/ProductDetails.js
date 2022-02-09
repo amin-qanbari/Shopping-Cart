@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
   return (
     <div>
-      <h3>nima-{id}</h3>
+      <h3>{id}</h3>
       <img src={product.image} alt="product" />
       <p>{product.price}</p>
       <p><span>Category:</span>{product.category}</p>
