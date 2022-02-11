@@ -1,0 +1,34 @@
+.payments {
+    width: 100%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.checkout {
+    text-align: center;
+    margin-top: 200px;
+    line-height: 90px;
+}
+.checkout h3{
+    color: rgb(18, 129, 18);
+}
+.checkout a {
+    text-decoration: none;
+    color: rgb(91, 91, 238);
+    font-weight: bold;
+
+}
+.clear{
+    text-align: center;
+    margin-top: 70px;
+}
+
+.clear a{
+    text-decoration: none;
+}
+
+.buttonContainer button{
+    margin: 10px
+}

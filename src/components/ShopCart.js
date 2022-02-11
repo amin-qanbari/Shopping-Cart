@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //css
-import "./Shopcart.css"
+import styles from "./Shopcart.module.css";
 
 //svg
-import empty from "../images/empty-cart.svg"
+import empty from "../images/empty-cart.svg";
 
 import Cart from "./Cart";
 //context
@@ -16,50 +15,55 @@ const ShopCart = () => {
   const { state, dispatch } = useContext(cartContext);
 
   return (
-    <Container>
-    <div >
-      <div className="m-2">
+    <div className={styles.container}>
+      <div className={styles.cartContainer}>
         {state.selectedItems.map((item) => (
           <Cart key={item.id} data={item} />
         ))}
       </div>
       {state.itemsCounter > 0 && (
-        <div>
+        <div className={styles.payments}>
           <p>
-            <span>Total Items:</span>
+            <span>تعداد: </span>
             {state.itemsCounter}
           </p>
           <p>
-            <span>Total Payments:</span>
-            {state.total}
+            <span>مبلغ پرداختی: </span>
+            {state.total} تومان
           </p>
-          <div>
-            <Button onClick={() => dispatch({ type: "CHECKOUT" })}>
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.checkoutBtn}
+              onClick={() => dispatch({ type: "CHECKOUT" })}
+            >
               Checkout
-            </Button>
-            <Button onClick={() => dispatch({ type: "CLEAR" })}>Clear</Button>
+            </button>
+            <button
+              className={styles.clearBtn}
+              onClick={() => dispatch({ type: "CLEAR" })}
+            >
+              Clear
+            </button>
           </div>
         </div>
       )}
 
       {state.checkout && (
-        <div>
-          <h3>Checkout Successfully</h3>
-          <Link to="/products">Buy More</Link>
+        <div className={styles.checkout}>
+          <h3>  خرید شما با موفقیت انجام شد </h3>
+          <Link to="/products">بازگشت به صفحه محصولات</Link>
         </div>
       )}
 
       {!state.checkout && state.itemsCounter === 0 && (
-        <div className=" clear d-flex align-items-center flex-column justify-content-center px-3" style={{minHeight:"70vh"}}>
-          
-          <img src={empty} style={{width:"21vw"}} alt="empty-card" />
-          <h5 className="my-4 fs-4">سبد خرید شما خالی است!</h5>
-          <p className="text-muted">می‌توانید برای مشاهده محصولات به صفحه زیر بروید:</p>
+        <div className={styles.clear}>
+          <img src={empty} style={{ width: "21vw" }} alt="empty-card" />
+          <h5>سبد خرید شما خالی است!</h5>
+          <p>می‌توانید برای مشاهده محصولات به صفحه زیر بروید:</p>
           <Link to="/products">برگشت به صفحه محصولات</Link>
         </div>
       )}
     </div>
-    </Container>
   );
 };
 

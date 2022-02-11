@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+//css
+import styles from "./Product.module.css"
+
 //helper
 import { shorten, isInCart, quantityCount } from "../../helper/function";
 
@@ -11,7 +14,7 @@ import { cartContext } from "../../context/CartContextProvider";
 const Product = ({ productData }) => {
   const { state, dispatch } = useContext(cartContext);
   return (
-    <Card className="my-3 shadow  ">
+    <Card className="my-3 shadow">
       <div className="d-flex justify-content-center my-3">
         <Image
           src={productData.image}
@@ -32,6 +35,7 @@ const Product = ({ productData }) => {
         <div>
           {isInCart(state, productData.id) ? (
             <Button
+            className={styles.btn}
               onClick={() =>
                 dispatch({ type: "INCREASE", payload: productData })
               }
@@ -50,6 +54,7 @@ const Product = ({ productData }) => {
 
           {quantityCount(state, productData.id) > 1 && (
             <Button
+            className={styles.btn}
               onClick={() =>
                 dispatch({ type: "DECREASE", payload: productData })
               }
@@ -59,6 +64,7 @@ const Product = ({ productData }) => {
           )}
           {quantityCount(state, productData.id) === 1 && (
             <Button
+            className={styles.btn}
               onClick={() =>
                 dispatch({ type: "REMOVE_ITEM", payload: productData })
               }
