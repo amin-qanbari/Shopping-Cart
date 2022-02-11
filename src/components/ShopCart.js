@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import { Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+//css
+import "./Shopcart.css"
+
 //svg
 import empty from "../images/empty-cart.svg"
 
@@ -47,11 +50,12 @@ const ShopCart = () => {
       )}
 
       {!state.checkout && state.itemsCounter === 0 && (
-        <div className="d-flex align-items-center flex-column justify-content-center" style={{minHeight:"70vh"}}>
+        <div className=" clear d-flex align-items-center flex-column justify-content-center px-3" style={{minHeight:"70vh"}}>
           
-          <img src={empty} alt="empty-card" />
-          <h4>سبد خرید شما خالی است</h4>
-          <Link to="/products">Go Back Home</Link>
+          <img src={empty} style={{width:"21vw"}} alt="empty-card" />
+          <h5 className="my-4 fs-4">سبد خرید شما خالی است!</h5>
+          <p className="text-muted">می‌توانید برای مشاهده محصولات به صفحه زیر بروید:</p>
+          <Link to="/products">برگشت به صفحه محصولات</Link>
         </div>
       )}
     </div>
