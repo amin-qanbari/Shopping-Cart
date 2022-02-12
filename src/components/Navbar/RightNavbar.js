@@ -9,7 +9,7 @@ const Ul = styled.ul`
 
    a {
     text-decoration: none;
-    color: #0c1c24;
+    color: #fff;
   }
 
   @media (max-width: 768px) {
