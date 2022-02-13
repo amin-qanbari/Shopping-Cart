@@ -30,7 +30,7 @@ const Product = ({ productData }) => {
         <h4>{`${productData.price}$`}</h4>
       </Card.Body>
       <Card.Footer className="d-flex justify-content-between align-items-center">
-        <Link to={`${productData.id}`}>details</Link>
+        <Link className="text-decoration-none" to={`${productData.id}`}>جزییات محصول</Link>
 
         <div>
           {isInCart(state, productData.id) ? (
@@ -48,7 +48,7 @@ const Product = ({ productData }) => {
                 dispatch({ type: "ADD_ITEM", payload: productData })
               }
             >
-              Add To Cart
+              افزودن به سبد خرید
             </Button>
           )}
 
@@ -69,7 +69,7 @@ const Product = ({ productData }) => {
                 dispatch({ type: "REMOVE_ITEM", payload: productData })
               }
             >
-              remove
+              حذف محصول
             </Button>
           )}
         </div>

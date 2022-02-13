@@ -72,4 +72,8 @@
     width: 95%;
     flex-direction: column;
   }
+
+  .divQuantity {
+    margin: 10px 0;
+  }
 }

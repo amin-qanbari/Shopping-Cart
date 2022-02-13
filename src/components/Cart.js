@@ -20,7 +20,7 @@ const Cart = ({ data }) => {
         <h6>{price} تومان</h6>
       </div>
 
-      <div>
+      <div className={styles.divQuantity}>
         <span className={styles.quantity}>{quantity}</span>
       </div>
 

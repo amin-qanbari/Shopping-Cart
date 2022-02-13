@@ -29,6 +29,66 @@
     text-decoration: none;
 }
 
+.buttonContainer{
+    display: flex;
+    /* background-color: red; */
+    width: 25%;
+    justify-content: space-around;
+}
+
 .buttonContainer button{
-    margin: 10px
+    margin: 10px ;
+    font-size: 16px;
+}
+
+.checkoutBtn {
+    border: none;
+    outline: none;
+    background-color: rgb(15, 141, 15);
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+}
+
+.clearBtn {
+    border: none;
+    outline: none;
+    color: red;
+}
+
+@media (max-width : 768px) {
+    .buttonContainer{
+        width: 35%;
+    }
+    .buttonContainer button {
+        font-size: 11px;
+    }
+    .payments p {
+        font-size: 11px;
+    }
+
+    @media (max-width : 450px) {
+
+        .payments{
+            flex-direction: column;
+            padding: 10px;
+        }
+        .payments p {
+            font-size: 12px;
+            margin-right: 15px;
+        }
+
+        .buttonContainer {
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .clearBtn{
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            padding: 7px 0;
+        }
+    }
 }
