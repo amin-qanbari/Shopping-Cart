@@ -18,14 +18,18 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #192f38;
-  height: 65px;
+  height: 60px;
   width: 100%;
   z-index: 30;
-  background-color:#1a73e8 ;
+  background-color: #1a73e8;
   padding: 10px 20px 0 20px;
   position: sticky;
   top: 0;
   margin-bottom: 20px;
+`;
+
+const DIV = styled.div`
+  display: flex;
 `;
 
 const Navbar = () => {
@@ -34,13 +38,15 @@ const Navbar = () => {
   return (
     <Nav>
       <Burger />
-      <Link to="/cart" style={{ textDecoration: "none" }}>
-        <i className="fa fa-shopping-cart" style={{color:"#f2f2f2"}}></i>
-        <span className="badge bg-danger rounded-pill">
-          {state.itemsCounter}
-        </span>
-      </Link>
-      <SearchInput/>
+      <DIV>
+        <Link to="/cart" style={{ textDecoration: "none" }}>
+          <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}></i>
+          <span className="badge bg-danger rounded-pill">
+            {state.itemsCounter}
+          </span>
+        </Link>
+      </DIV>
+      <SearchInput />
     </Nav>
   );
 };
