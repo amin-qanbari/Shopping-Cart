@@ -7,7 +7,11 @@ const Ul = styled.ul`
   display: flex;
   z-index: 10;
 
-   a {
+  .cart {
+    display: none;
+  }
+
+  a {
     text-decoration: none;
     color: #fff;
   }
@@ -22,9 +26,14 @@ const Ul = styled.ul`
     width: 50%;
     height: 100vh;
     padding-top: 4rem;
-    transition: all .2s linear;
-    transform: ${({open}) => open ? "translateX(0)" : "translateX(100%)"};
-     a li {
+    transition: all 0.2s linear;
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+
+    .cart{
+      display: block;
+    }
+
+    a li {
       color: #f1f1f1;
     }
   }
@@ -37,21 +46,22 @@ const Ul = styled.ul`
       background-color: #ccc;
       color: #0c1c24;
     }
-    
   }
-
 `;
 
-const RightNavbar = ({open, close}) => {
+const RightNavbar = ({ open, close }) => {
   // const navigate = () => {
 
   // }
   return (
     <div>
       <Ul open={open}>
-        {/* <Link to="/" onClick={close}><li>Home</li></Link> */}
-        <Link to="/products" onClick={close}><li>محصولات</li></Link>
-        {/* <Link to="/aboutus" onClick={close}><li>About us</li></Link> */}
+        <Link to="/products" onClick={close}>
+          <li>محصولات</li>
+        </Link>
+        <Link className="cart" to="/cart" onClick={close}>
+          <li>سبد خرید</li>
+        </Link>
       </Ul>
     </div>
   );

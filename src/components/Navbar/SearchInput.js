@@ -9,8 +9,8 @@ import styled from "styled-components";
 
 const DIV = styled.div`
   position: relative;
-  width: ${({ toggle }) => (toggle ? "260px" : "35px")};
-  height: 35px;
+  width: ${({ toggle }) => (toggle ? "240px" : "30px")};
+  height: 30px;
   background: #fff;
   border-radius: 60px;
   transition: 0.5s;
@@ -20,11 +20,10 @@ const DIV = styled.div`
   .input {
     position: relative;
     right: 25px;
-    bottom: 5px;
     display: flex;
     justify-content: center;
     width: 300px;
-    height: 40px;
+    height: 30px;
   }
 
   .input input {
@@ -34,7 +33,7 @@ const DIV = styled.div`
     height: 100%;
     border: none;
     outline: none;
-    font-size: 18px;
+    font-size: 15px;
     padding: 10px 0;
   }
 
@@ -42,14 +41,14 @@ const DIV = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background: #fff;
     border-radius: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1;
     cursor: pointer;
   }
   .icon::before {

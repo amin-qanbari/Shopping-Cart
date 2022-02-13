@@ -26,10 +26,32 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   margin-bottom: 20px;
-`;
 
-const DIV = styled.div`
-  display: flex;
+  @media (max-width: 768px) {
+   .div a  {
+      display: none;
+    }
+  }
+  .div {
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+  }
+  
+  .div a i {
+    margin-right: 15px;
+    line-height: 35px;
+    font-size: 23px;
+    position: relative;
+  }
+  
+  .div a span {
+    position: absolute;
+    /* left: 27px; */
+    right: -10px;
+    font-size: 10px;
+  }
+
 `;
 
 const Navbar = () => {
@@ -38,15 +60,18 @@ const Navbar = () => {
   return (
     <Nav>
       <Burger />
-      <DIV>
+
+      <div className="div">
+        <SearchInput />
+
         <Link to="/cart" style={{ textDecoration: "none" }}>
-          <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}></i>
-          <span className="badge bg-danger rounded-pill">
-            {state.itemsCounter}
-          </span>
+          <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}>
+            <span className="badge bg-danger rounded-pill">
+              {state.itemsCounter}
+            </span>
+          </i>
         </Link>
-      </DIV>
-      <SearchInput />
+      </div>
     </Nav>
   );
 };
