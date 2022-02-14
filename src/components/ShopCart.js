@@ -36,7 +36,7 @@ const ShopCart = () => {
               className={styles.checkoutBtn}
               onClick={() => dispatch({ type: "CHECKOUT" })}
             >
-              تسویه 
+              پرداخت 
             </button>
             <button
               className={styles.clearBtn}

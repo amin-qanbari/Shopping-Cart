@@ -3,7 +3,7 @@ import { Card, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //css
-import styles from "./Product.module.css"
+import styles from "./Product.module.css";
 
 //helper
 import { shorten, isInCart, quantityCount } from "../../helper/function";
@@ -27,15 +27,17 @@ const Product = ({ productData }) => {
       <Card.Body>
         <Card.Title>{shorten(productData.title)}</Card.Title>
         <hr />
-        <h4>{`${productData.price}$`}</h4>
+        <h6>{`${productData.price} تومان`}</h6>
       </Card.Body>
       <Card.Footer className="d-flex justify-content-between align-items-center">
-        <Link className="text-decoration-none" to={`${productData.id}`}>جزییات محصول</Link>
+        <Link className={styles.size} to={`${productData.id}`}>
+          جزییات محصول
+        </Link>
 
         <div>
           {isInCart(state, productData.id) ? (
             <Button
-            className={styles.btn}
+              className={styles.btn}
               onClick={() =>
                 dispatch({ type: "INCREASE", payload: productData })
               }
@@ -44,6 +46,7 @@ const Product = ({ productData }) => {
             </Button>
           ) : (
             <Button
+            className={styles.btn2}
               onClick={() =>
                 dispatch({ type: "ADD_ITEM", payload: productData })
               }
@@ -54,7 +57,7 @@ const Product = ({ productData }) => {
 
           {quantityCount(state, productData.id) > 1 && (
             <Button
-            className={styles.btn}
+              className={styles.btn}
               onClick={() =>
                 dispatch({ type: "DECREASE", payload: productData })
               }
@@ -64,12 +67,12 @@ const Product = ({ productData }) => {
           )}
           {quantityCount(state, productData.id) === 1 && (
             <Button
-            className={styles.btn}
+              className={styles.btn}
               onClick={() =>
                 dispatch({ type: "REMOVE_ITEM", payload: productData })
               }
             >
-              حذف محصول
+              <i className="fa fa-trash-can"></i>{" "}
             </Button>
           )}
         </div>

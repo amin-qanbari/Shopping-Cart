@@ -27,11 +27,22 @@ const Nav = styled.nav`
   top: 0;
   margin-bottom: 20px;
 
-  @media (max-width: 768px) {
-   .div a  {
-      display: none;
-    }
+ .cart2 i {
+    margin-right: 15px;
+    line-height: 35px;
+    font-size: 23px;
+    position: relative;
+    margin-right: 55px;
+    display: none;
   }
+
+  .cart2 span{
+    position: absolute;
+    right: -10px;
+    font-size: 10px;
+  }
+  
+
   .div {
     display: flex;
     justify-content: flex-end;
@@ -47,10 +58,22 @@ const Nav = styled.nav`
   
   .div a span {
     position: absolute;
-    /* left: 27px; */
     right: -10px;
     font-size: 10px;
   }
+  @media (max-width: 768px) {
+   padding:10px 10px 0 10px;
+
+   line-height: 10px;
+    .div a  {
+      display: none;
+    }
+    .cart2 i{
+      display: block;
+    }
+ 
+  }
+
 
 `;
 
@@ -59,10 +82,19 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Burger />
+      <div className="d-flex align-items-center justify-content-between">
 
+      <Burger />
+      <Link className="cart2" to="/cart" style={{ textDecoration: "none" }}>
+          <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}>
+            <span className="badge bg-danger rounded-pill">
+              {state.itemsCounter}
+            </span>
+          </i>
+      </Link>
+      </div>
       <div className="div">
-        <SearchInput />
+        <SearchInput className="SearchInput"/>
 
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}>
