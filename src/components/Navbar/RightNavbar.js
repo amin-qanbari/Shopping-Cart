@@ -6,6 +6,7 @@ const Ul = styled.ul`
   list-style: none;
   display: flex;
   z-index: 10;
+  overflow: hidden;
 
   .cart {
     display: none;
@@ -13,6 +14,7 @@ const Ul = styled.ul`
 
   a {
     text-decoration: none;
+    width: 360px;
     color: #fff;
   }
 
@@ -39,12 +41,13 @@ const Ul = styled.ul`
   }
 
   li {
-    padding: 22px 15px;
+    padding: 22px 35px;
     font-weight: bold;
     cursor: pointer;
     :hover {
-      background-color: #ccc;
-      color: #0c1c24;
+      transition: all 0.2s ease-in-out;
+      background-color: #fff;
+      color: #010606;
     }
   }
 `;

@@ -13,6 +13,7 @@ import Burger from "./Burger";
 //SPA
 import { Link } from "react-router-dom";
 
+
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -22,7 +23,7 @@ const Nav = styled.nav`
   width: 100%;
   z-index: 30;
   background-color: #1a73e8;
-  padding: 10px 20px 0 20px;
+  padding: 10px 0px 0 20px;
   position: sticky;
   top: 0;
   margin-bottom: 20px;

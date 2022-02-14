@@ -14,11 +14,12 @@ const DIV = styled.div`
   background: #fff;
   border-radius: 60px;
   transition: 0.5s;
-  box-shadow: 0 0 5px #2573ef;
+  /* box-shadow: 0 0 5px #6C757D; */
   overflow: hidden;
   margin-bottom: 9px;
   .input {
     position: relative;
+   
     right: 25px;
     display: flex;
     justify-content: center;
@@ -56,7 +57,7 @@ const DIV = styled.div`
     position: absolute;
     width: 12px;
     height: 12px;
-    border: 3px solid #287dfc;
+    border: 2px solid #6C757D;
     border-radius: 50%;
     transform: translate(-2px, -2px);
   }
@@ -64,9 +65,9 @@ const DIV = styled.div`
   .icon::after {
     content: "";
     position: absolute;
-    width: 3px;
+    width: 2px;
     height: 10px;
-    background: #287dfc;
+    background: #6C757D;
     transform: translate(5px, 6px) rotate(315deg);
   }
 
