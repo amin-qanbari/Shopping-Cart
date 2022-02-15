@@ -13,7 +13,6 @@ import Burger from "./Burger";
 //SPA
 import { Link } from "react-router-dom";
 
-
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -28,7 +27,7 @@ const Nav = styled.nav`
   top: 0;
   margin-bottom: 20px;
 
- .cart2 i {
+  .cart2 i {
     margin-right: 15px;
     line-height: 35px;
     font-size: 23px;
@@ -37,45 +36,47 @@ const Nav = styled.nav`
     display: none;
   }
 
-  .cart2 span{
+  .cart2 span {
     position: absolute;
     right: -10px;
     font-size: 10px;
   }
-  
 
   .div {
     display: flex;
     justify-content: flex-end;
     width: 60%;
   }
-  
+
   .div a i {
     margin-right: 15px;
     line-height: 35px;
     font-size: 23px;
     position: relative;
   }
-  
+
   .div a span {
     position: absolute;
     right: -10px;
     font-size: 10px;
   }
-  @media (max-width: 768px) {
-   padding:10px 10px 0 10px;
 
-   line-height: 10px;
-    .div a  {
-      display: none;
-    }
-    .cart2 i{
-      display: block;
-    }
- 
+  .user{
+    color: #fff;
+
   }
 
+  @media (max-width: 768px) {
+    padding: 10px 10px 0 10px;
 
+    line-height: 10px;
+    .div a {
+      display: none;
+    }
+    .cart2 i {
+      display: block;
+    }
+  }
 `;
 
 const Navbar = () => {
@@ -84,18 +85,22 @@ const Navbar = () => {
   return (
     <Nav>
       <div className="d-flex align-items-center justify-content-between">
-
-      <Burger />
-      <Link className="cart2" to="/cart" style={{ textDecoration: "none" }}>
+        <Burger />
+        <Link className="cart2" to="/cart" style={{ textDecoration: "none" }}>
           <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}>
             <span className="badge bg-danger rounded-pill">
               {state.itemsCounter}
             </span>
           </i>
-      </Link>
+        </Link>
+   
       </div>
       <div className="div">
-        <SearchInput className="SearchInput"/>
+        <SearchInput className="SearchInput" />
+
+        <Link to="/signup">
+        <i className="fa fa-user user"></i>
+        </Link>
 
         <Link to="/cart" style={{ textDecoration: "none" }}>
           <i className="fa fa-shopping-cart" style={{ color: "#f2f2f2" }}>

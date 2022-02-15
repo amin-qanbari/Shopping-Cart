@@ -10,6 +10,10 @@ import ProductContextProvider from "./context/ProductContextProvider";
 import CartContextProvider from "./context/CartContextProvider";
 import SearchContextProvider from "./context/SearchContextProvider";
 
+//validate
+import Login from "./components/FormValidate/Login";
+import SignUp from "./components/FormValidate/SignUp";
+
 function App() {
   return (
     <ProductContextProvider>
@@ -21,6 +25,9 @@ function App() {
             <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/products" element={<Store />} />
             <Route path="/*" element={<Navigate to="/products" />} />
+            <Route path="/signUp" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/products" element={<Navigate to="/signUp" />} />
           </Routes>
         </SearchContextProvider>
       </CartContextProvider>

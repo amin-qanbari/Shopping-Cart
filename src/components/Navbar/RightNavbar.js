@@ -69,6 +69,9 @@ const RightNavbar = ({ open, close }) => {
         <Link className="cart" to="/cart" onClick={close}>
           <li>سبد خرید</li>
         </Link>
+        <Link className="cart" to="/signup" onClick={close}>
+          <li>ثبت نام</li>
+        </Link>
       </Ul>
     </div>
   );
