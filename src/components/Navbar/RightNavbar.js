@@ -14,7 +14,7 @@ const Ul = styled.ul`
 
   a {
     text-decoration: none;
-    width: 360px;
+    /* width: 360px; */
     color: #fff;
   }
 
@@ -33,6 +33,10 @@ const Ul = styled.ul`
 
     .cart{
       display: block;
+    }
+
+    a{
+    width: 360px;
     }
 
     a li {
