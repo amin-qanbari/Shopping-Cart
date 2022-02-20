@@ -21,7 +21,12 @@ const Nav = styled.nav`
   height: 60px;
   width: 100%;
   z-index: 30;
-  background-color: #1a73e8;
+  background: rgb(34, 80, 105);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 80, 105, 1) 0%,
+    rgba(110, 142, 177, 1) 100%
+  );
   padding: 10px 0px 0 20px;
   position: sticky;
   top: 0;
@@ -61,9 +66,8 @@ const Nav = styled.nav`
     font-size: 10px;
   }
 
-  .user{
+  .user {
     color: #fff;
-
   }
 
   @media (max-width: 768px) {
@@ -93,13 +97,12 @@ const Navbar = () => {
             </span>
           </i>
         </Link>
-   
       </div>
       <div className="div">
         <SearchInput className="SearchInput" />
 
         <Link to="/signup">
-        <i className="fa fa-user user"></i>
+          <i className="fa fa-user user"></i>
         </Link>
 
         <Link to="/cart" style={{ textDecoration: "none" }}>
